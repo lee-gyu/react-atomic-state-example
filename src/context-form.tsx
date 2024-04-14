@@ -13,6 +13,8 @@ function formReducer(state, action): FormState {
       return { ...state, name: action.value };
     case "SET_AGE":
       return { ...state, age: action.value };
+    case "RESET":
+      return { name: "", age: "" };
     default:
       console.warn("Unhandled action type", action.type);
       return state;
@@ -48,6 +50,9 @@ export function NonAtomForm() {
       />
       <h4>Name: {state.name}</h4>
       <h4>Age: {state.age}</h4>
+      <button type="button" onClick={() => dispatch({ type: "RESET" })}>
+        Reset
+      </button>
     </form>
   );
 }

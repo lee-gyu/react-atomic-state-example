@@ -1,5 +1,5 @@
 import { atom } from "./atom-context/atom.js";
-import { useAtom, useAtomValue } from "./atom-context/context.js";
+import { useAtom, useAtomValue, useSetAtom } from "./atom-context/context.js";
 
 const formAtom = {
   name: atom(""),
@@ -18,7 +18,11 @@ function AgeField() {
   const [age, setAge] = useAtom(formAtom.age);
 
   return (
-    <input value={age} onChange={(ev) => setAge(ev.currentTarget.value)} />
+    <input
+      type="number"
+      value={age}
+      onChange={(ev) => setAge(ev.currentTarget.value)}
+    />
   );
 }
 
@@ -35,6 +39,9 @@ function PrintAgeInfo() {
 }
 
 export function AtomForm() {
+  const setName = useSetAtom(formAtom.name);
+  const setAge = useSetAtom(formAtom.age);
+
   return (
     <form className="form">
       <h2>Atomic Form</h2>
@@ -42,6 +49,9 @@ export function AtomForm() {
       <AgeField />
       <PrintNameInfo />
       <PrintAgeInfo />
+      <button type="button" onClick={() => (setName(""), setAge(""))}>
+        Reset
+      </button>
     </form>
   );
 }
