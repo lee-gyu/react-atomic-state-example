@@ -33,7 +33,7 @@ export function NonAtomForm() {
 
   return (
     <form className="form">
-      <h1>Non Atomic Form</h1>
+      <h2>Non Atomic Form</h2>
       <input
         placeholder="Please enter your name"
         type="text"

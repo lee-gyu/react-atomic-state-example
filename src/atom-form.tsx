@@ -37,7 +37,7 @@ function PrintAgeInfo() {
 export function AtomForm() {
   return (
     <form className="form">
-      <h1>Atomic Form</h1>
+      <h2>Atomic Form</h2>
       <NameField />
       <AgeField />
       <PrintNameInfo />
